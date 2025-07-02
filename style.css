@@ -109,6 +109,13 @@
     color: var(--dark);
 }
 
+.edit-input {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
 .fa-trash {
     color: var(--delete);
     font-size: 20px;

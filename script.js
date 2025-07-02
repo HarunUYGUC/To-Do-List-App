@@ -4,9 +4,10 @@ const taskList = document.getElementById("task-list");
 
 addBtn.addEventListener("click", addTask);
 
+// Adding a Task
 function addTask() {
     if (inputBox.value === "") {
-        alert("Bir görev giriniz.");
+        alert("Enter a task.");
     }
     else {
         let li = document.createElement("li");
@@ -35,6 +36,14 @@ function addTask() {
     saveData();
 }
 
+// Adding a Task with Enter Key
+inputBox.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        addTask();
+    }
+});
+
+// Completed - Incompleted
 taskList.addEventListener("click", function (e) {
     const el = e.target;
 
@@ -60,11 +69,48 @@ taskList.addEventListener("click", function (e) {
     saveData();
 });
 
+// Edit
+taskList.addEventListener("dblclick", function (e) {
+    const taskItem = e.target.closest(".task-item");
+    const taskTextSpan = taskItem.querySelector(".task-text");
 
+    if (taskItem.querySelector("input.edit-input")) return;
+
+    const oldText = taskTextSpan.textContent;
+    const input = document.createElement("input");
+
+    input.type = "text";
+    input.value = oldText;
+    input.className = "edit-input";
+    input.style.flex = "1";
+
+    taskItem.replaceChild(input, taskTextSpan);
+    input.focus();
+
+    function replaceInputWithSpan() {
+        const newText = input.value.trim();
+        const newSpan = document.createElement("span");
+
+        newSpan.className = "task-text";
+        newSpan.textContent = newText || oldText; // If input is empty, keep old text
+        taskItem.replaceChild(newSpan, input);
+    }
+
+    input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            replaceInputWithSpan();
+        }
+    });
+
+    input.addEventListener("blur", replaceInputWithSpan);
+});
+
+// Save Tasks
 function saveData() {
     localStorage.setItem("data", taskList.innerHTML);
 }
 
+// Show Tasks
 function showTask() {
     taskList.innerHTML = localStorage.getItem("data");
 }
