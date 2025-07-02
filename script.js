@@ -38,7 +38,7 @@ function addTask() {
 taskList.addEventListener("click", function (e) {
     const el = e.target;
 
-    if (el.classList.contains("li-circle") || el.classList.contains("task-text")) {
+    if (el.classList.contains("li-circle") || el.classList.contains("li-tick") || el.classList.contains("task-text")) {
         el.parentElement.classList.toggle("checked");
 
         const icon = el.parentElement.querySelector("i.li-circle, i.li-tick");
