@@ -1,0 +1,139 @@
+:root {
+    --bg-primary: #1B3C53;
+    --bg-secondary: #91C8E4;
+    --header: #555879;
+    --button: #97B067;
+    --buton-hover: #708745;
+    --dark: #212121;
+    --input: #F9F3EF;
+    --delete: #E14434;
+    --delete-hover: #851f14;
+    --tick: #06923E;
+    --circle: #E5E0D8;
+    --hover: #F5F5F5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background: linear-gradient(to right, var(--bg-primary), var(--bg-secondary));
+    min-height: 100vh;
+    width: 100%;
+    padding: 10px;
+}
+
+.app {
+    width: 100%;
+    max-width: 600px;
+    margin: 200px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 20px 20px 6px rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.title {
+    color: var(--header);
+    margin-right: 15px;
+}
+
+.to-do-icon {
+    width: 50px;
+    height: auto;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    background: var(--input);
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+#input-box {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+
+#add-btn {
+    border: none;
+    outline: none;
+    padding: 15px 40px;
+    color: #fff;
+    background-color: var(--button);
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.2s;
+}
+
+#add-btn:hover {
+    background-color: var(--buton-hover);
+}
+
+#task-list {
+    margin-top: 10px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 12px;
+}
+
+.task-item:hover {
+    background-color: var(--hover);
+    border-radius: 20px;
+}
+
+.task-text {
+    flex: 1;
+    color: var(--dark);
+}
+
+.fa-trash {
+    color: var(--delete);
+    font-size: 20px;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.fa-trash:hover {
+    color: var(--delete-hover)
+}
+
+.checked span {
+    text-decoration: line-through;
+    color: var(--dark);
+    opacity: 0.6;
+}
+
+.li-tick {
+    color: var(--tick);
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.li-circle {
+    color: var(--circle);
+    font-size: 20px;
+    margin-right: 15px;
+}
