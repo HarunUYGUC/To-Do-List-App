@@ -43,7 +43,7 @@ inputBox.addEventListener("keydown", function (e) {
     }
 });
 
-// Completed - Incompleted
+// Completed - Incompleted - Delete
 taskList.addEventListener("click", function (e) {
     const el = e.target;
 
@@ -94,6 +94,8 @@ taskList.addEventListener("dblclick", function (e) {
         newSpan.className = "task-text";
         newSpan.textContent = newText || oldText; // If input is empty, keep old text
         taskItem.replaceChild(newSpan, input);
+
+        saveData();
     }
 
     input.addEventListener("keydown", function (e) {
